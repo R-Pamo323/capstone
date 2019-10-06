@@ -14,7 +14,7 @@ class PagesController extends Controller
         return view('ubuscar');
     }
     public function crearusuario(){
-        $usuario = Paciente::with('postas')->get();
+        $usuario = Paciente::all();
         return view('ucrear',compact('usuario'));
     }
     public function perfildoc(){

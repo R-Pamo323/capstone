@@ -14,7 +14,7 @@ class CreatePacientesTable extends Migration
     public function up()
     {
         Schema::create('pacientes', function (Blueprint $table) {
-            $table->bigIncrements('id_pac');
+            $table->bigIncrements('id');
             $table->string('nombres_pac');
             $table->string('apellidos_pac');
             $table->char('dni_pac');
@@ -26,8 +26,8 @@ class CreatePacientesTable extends Migration
             $table->text('provincia_pac');
             $table->text('distrito_pac');
             $table->boolean('asegurado_pac')->default(0);
-            $table->unsignedBigInteger('id_pos');
-            $table->foreign('id_pos')->references('id_pos')->on('postas');
+            $table->unsignedBigInteger('postas_id');
+            $table->foreign('postas_id')->references('id')->on('postas');
             $table->timestamps();
         });
     }

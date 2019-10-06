@@ -14,7 +14,7 @@ class CreatePostasTable extends Migration
     public function up()
     {
         Schema::create('postas', function (Blueprint $table) {
-            $table->bigIncrements('id_pos');
+            $table->bigIncrements('id');
             $table->string('nombre_pos');
             $table->text('direccion_pos');
             $table->timestamps();

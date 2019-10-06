@@ -10,7 +10,7 @@
             @foreach ($usuario as $item)
                 <input name="name" placeholder="Nombres..." value="{{ $item->apellidos_pac }}">
                 <br>
-                <input name="apellidos" placeholder="Apellidos..." value="{{ $item->postas->direccion_pos }}">
+                <input name="apellidos" placeholder="Apellidos..." value="{{ $item->postas->nombre_pos }}">
                 <br>
                 <input type="date" name="fecha" value="{{ old('date') }}"><br>
                 <input name="numdoc" placeholder="Num. Documento" value="{{ old('numdoc') }}"><br>

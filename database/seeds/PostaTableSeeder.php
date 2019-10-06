@@ -39,7 +39,7 @@ class PostaTableSeeder extends Seeder
         $paciente->provincia_pac = "Arequipa";
         $paciente->distrito_pac = "Sachaca";
         $paciente->asegurado_pac = true;
-        $paciente->id_pos = 1;
+        $paciente->postas_id = 1;
         $paciente->save();
 
 
@@ -55,7 +55,7 @@ class PostaTableSeeder extends Seeder
         $paciente->provincia_pac = "Arequipa";
         $paciente->distrito_pac = "Hunter";
         $paciente->asegurado_pac = false;
-        $paciente->id_pos = 2;
+        $paciente->postas_id = 2;
         $paciente->save();
 
 
@@ -71,7 +71,7 @@ class PostaTableSeeder extends Seeder
         $paciente->provincia_pac = "Arequipa";
         $paciente->distrito_pac = "Jose Luis";
         $paciente->asegurado_pac = true;
-        $paciente->id_pos = 1;
+        $paciente->postas_id = 1;
         $paciente->save();
 
     }
