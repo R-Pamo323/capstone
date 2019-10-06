@@ -15,19 +15,23 @@ class CreatePacientesTable extends Migration
     {
         Schema::create('pacientes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombres_pac');
-            $table->string('apellidos_pac');
-            $table->char('dni_pac');
-            $table->string('email_pac');
-            $table->timestamp('nacimiento_pac')->nullable();
-            $table->text('direccion_pac');
-            $table->text('pais_pac');
-            $table->text('departamento_pac');
-            $table->text('provincia_pac');
-            $table->text('distrito_pac');
-            $table->boolean('asegurado_pac')->default(0);
-            $table->unsignedBigInteger('postas_id');
-            $table->foreign('postas_id')->references('id')->on('postas');
+            $table->string('pac_nombre');
+            $table->string('pac_apellido');
+            $table->char('pac_dni',8);
+            $table->string('pac_sexo');
+            $table->string('pac_email')->unique();
+            $table->timestamp('pac_nacimiento')->nullable();
+            $table->string('pac_pais');
+            $table->string('pac_departamento');
+            $table->string('pac_provincia');
+            $table->string('pac_distrito');
+            $table->string('pac_direccion');
+            $table->boolean('pac_asegurado')->default(0);
+            $table->string('pac_estcivil');
+            $table->string('pac_estudio');
+            $table->string('pac_seguro');
+            $table->unsignedBigInteger('posta_id');
+            $table->foreign('posta_id')->references('id')->on('postas');
             $table->timestamps();
         });
     }

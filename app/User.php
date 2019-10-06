@@ -36,4 +36,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function clinica(){
+        return $this->belongsTo(Clinica::class,'clinica_id');
+    }
+
+    public function posta(){
+        return $this->belongsTo(Posta::class,'posta_id');
+    }
 }

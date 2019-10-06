@@ -13,13 +13,35 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        Schema::create('postas', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('pos_nombre');
+            $table->text('pos_direccion');
+            $table->timestamps();
+        });
+
+        Schema::create('clinicas', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('cli_nombre');
+            $table->text('cli_direccion');
+            $table->timestamps();
+        });
+
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('doc_apellido');
+            $table->string('doc_nombre');
+            $table->string('doc_email')->unique();
+            $table->char('doc_dni',8);
+            $table->string('doc_cmp');
+            $table->string('doc_especialidad');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->unsignedBigInteger('posta_id');
+            $table->foreign('posta_id')->references('id')->on('postas');
+            $table->unsignedBigInteger('clinica_id');
+            $table->foreign('clinica_id')->references('id')->on('clinicas');
             $table->timestamps();
         });
     }
@@ -31,6 +53,8 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('postas');
+        Schema::dropIfExists('clinicas');
         Schema::dropIfExists('users');
     }
 }

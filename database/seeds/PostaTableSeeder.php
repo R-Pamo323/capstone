@@ -3,7 +3,10 @@
 use Illuminate\Database\Seeder;
 use App\Posta;
 use App\Paciente;
-use Carbon\Carbon;
+use App\Clinica;
+use App\Historia;
+use App\Traslado;
+use App\User;
 
 class PostaTableSeeder extends Seeder
 {
@@ -16,63 +19,117 @@ class PostaTableSeeder extends Seeder
     {
         //Posta::truncate();
         $posta = new Posta();
-        $posta->nombre_pos = "Jacobo Hunter";
-        $posta->direccion_pos = "Hunter";
+        $posta->pos_nombre = "Jacobo Hunter";
+        $posta->pos_direccion = "Hunter";
         $posta->save();
 
         $posta = new Posta();
-        $posta->nombre_pos = "Doctor Paucarpata";
-        $posta->direccion_pos = "Paucarpata";
+        $posta->pos_nombre = "Hospital de Paucarpata";
+        $posta->pos_direccion = "Paucarpata";
         $posta->save();
+//////////////////////////////////
+        $clinica = new Clinica();
+        $clinica->cli_nombre = "San Juan de los Angeles";
+        $clinica->cli_direccion = "Av. Ejercito";
+        $clinica->save();
 
+        $clinica = new Clinica();
+        $clinica->cli_nombre = "Clinica los Angeles";
+        $clinica->cli_direccion = "Por el centro";
+        $clinica->save();
+///////////////////////////////////////
+        $user = new User();
+        $user->doc_apellido="Rodriguez Fuentes";
+        $user->doc_nombre="Alfonso";
+        $user->doc_email="alfondosord_32@gmail.com";
+        $user->doc_dni="72469994";
+        $user->doc_cmp="78495955";
+        $user->doc_especialidad="Traumotologia";
+        $user->posta_id=1;
+        $user->clinica_id=1;
+        $user->password= "soylaleche";
+        $user->save();
+        
 
         //Paciente::truncate();
         $paciente = new Paciente();
-        $paciente->nombres_pac = "Rodrigo Edmur";
-        $paciente->apellidos_pac = "Pamo Delgado";
-        $paciente->dni_pac = "72469994";
-        $paciente->email_pac = "rodrigopamo323@gmail.com";
-        $paciente->nacimiento_pac = "1997/10/18";
-        $paciente->direccion_pac = "Calle Tahuaycani.128";
-        $paciente->pais_pac = "Peru";
-        $paciente->departamento_pac = "Arequipa";
-        $paciente->provincia_pac = "Arequipa";
-        $paciente->distrito_pac = "Sachaca";
-        $paciente->asegurado_pac = true;
-        $paciente->postas_id = 1;
+        $paciente->pac_nombre = "Rodrigo Edmur";
+        $paciente->pac_apellido = "Pamo Delgado";
+        $paciente->pac_dni = "72469994";
+        $paciente->pac_sexo = "Masculino";
+        $paciente->pac_email = "rodrigopamo323@gmail.com";
+        $paciente->pac_nacimiento = "1997/10/18";
+        $paciente->pac_pais = "Peru";
+        $paciente->pac_departamento = "Arequipa";
+        $paciente->pac_provincia = "Arequipa";
+        $paciente->pac_distrito = "Sachaca";
+        $paciente->pac_direccion = "Calle Tahuaycani.128";
+        $paciente->pac_asegurado = true;
+        $paciente->pac_estcivil = "Soltero";
+        $paciente->pac_estudio = "Universitario";
+        $paciente->pac_seguro = "Por Vida";
+        $paciente->posta_id = 1;
         $paciente->save();
-
 
         $paciente = new Paciente();
-        $paciente->nombres_pac = "Richi Smith";
-        $paciente->apellidos_pac = "Swneger Snayder";
-        $paciente->dni_pac = "72478144";
-        $paciente->email_pac = "richismith3@gmail.com";
-        $paciente->nacimiento_pac = "1990/11/10";
-        $paciente->direccion_pac = "Hunter";
-        $paciente->pais_pac = "Peru";
-        $paciente->departamento_pac = "Arequipa";
-        $paciente->provincia_pac = "Arequipa";
-        $paciente->distrito_pac = "Hunter";
-        $paciente->asegurado_pac = false;
-        $paciente->postas_id = 2;
+        $paciente->pac_nombre = "Richi Arnold";
+        $paciente->pac_apellido = "Lazaro Ballena";
+        $paciente->pac_dni = "84569994";
+        $paciente->pac_sexo = "Masculino";
+        $paciente->pac_email = "richartudios@gmail.com";
+        $paciente->pac_nacimiento = "1998/09/17";
+        $paciente->pac_pais = "Peru";
+        $paciente->pac_departamento = "Arequipa";
+        $paciente->pac_provincia = "Arequipa";
+        $paciente->pac_distrito = "Hunter";
+        $paciente->pac_direccion = "Calle Brasil.505";
+        $paciente->pac_asegurado = true;
+        $paciente->pac_estcivil = "Soltero";
+        $paciente->pac_estudio = "Universitario";
+        $paciente->pac_seguro = "Por Vida";
+        $paciente->posta_id = 2;
         $paciente->save();
 
+        ////////////////////////////////
 
-        $paciente = new Paciente();
-        $paciente->nombres_pac = "Ever Elian";
-        $paciente->apellidos_pac = "Ore Rondon";
-        $paciente->dni_pac = "45769994";
-        $paciente->email_pac = "everdeyossi@gmail.com";
-        $paciente->nacimiento_pac = Carbon::now();
-        $paciente->direccion_pac = "Calle del amor";
-        $paciente->pais_pac = "Peru";
-        $paciente->departamento_pac = "Arequipa";
-        $paciente->provincia_pac = "Arequipa";
-        $paciente->distrito_pac = "Jose Luis";
-        $paciente->asegurado_pac = true;
-        $paciente->postas_id = 1;
-        $paciente->save();
+        $historia = new Historia();
+        $historia->his_fecha= "1998/09/17";
+        $historia->his_diagnostico= "Palido parece que tiene fiebre";
+        $historia->his_tratamiento= "Se le puso paños y panadol";
+        $historia->his_sintomas="Dolor de cabeza, temperatura alta";
+        $historia->paciente_id = 1;
+        $historia->save();
 
+        $historia = new Historia();
+        $historia->his_fecha= "2000/10/11";
+        $historia->his_diagnostico= "Dolor de estomago paracitos";
+        $historia->his_tratamiento= "Pastillas";
+        $historia->his_sintomas="Dolor de estomago, diarrea";
+        $historia->paciente_id = 1;
+        $historia->save();
+
+
+        /////////////////////////////////
+        $traslado = new Traslado();
+        $traslado->tra_fecha = "2000/10/11";
+        $traslado->tra_anamnesis = "Dificultad al respirar";
+        $traslado->tra_diagnostico = "Infeccion en el pulmon";
+        $traslado->tra_tratamiento = "Nebulizador con oxigeno";
+        $traslado->tra_coordinacion = "Emergencia";
+        $traslado->tra_condicion = false;
+        $traslado->tra_especialidad = "cardiologia";
+        $traslado->tra_persona_acompanante = "Enfermera Monroy";
+        $traslado->tra_o_presionarterial = 90;
+        $traslado->tra_o_respiracion = 18;
+        $traslado->tra_o_pulso = 120;
+        $traslado->tra_o_temperatura = 38;
+        $traslado->tra_a_recomendacion = "Se recomienda mantener el oxigeno";
+        $traslado->tra_a_problemas_esperados = "Dar pulsaciones";
+        $traslado->tra_confirmacion = true;
+        $traslado->posta_id = 1;
+        $traslado->clinica_id = 1;
+        $traslado->paciente_id = 1;
+        $traslado->user_id = 1;
+        $traslado->save();
     }
 }
