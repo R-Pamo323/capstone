@@ -11,3 +11,4 @@ Route::get('/ubuscar','PagesController@buscarusuario')->name('ubuscar');
 Route::get('/ucrear','PagesController@crearusuario')->name('ucrear');
 Route::get('/dperfil','PagesController@perfildoc')->name('perfil');
 Route::get('/transferencia','PagesController@transferencia')->name('transferencia');
+Route::get('/uhistorias','PagesController@historias')->name('uhistorias');

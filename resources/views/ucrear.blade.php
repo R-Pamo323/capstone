@@ -7,20 +7,28 @@
     <form method="POST" action="{{ route('ucrear') }}"> 
         @csrf
         <div>Datos Personales<br>
-            @foreach ($usuario as $item)
-                <input name="name" placeholder="Nombres..." value="{{ $item->apellidos_pac }}">
+            @foreach ($paciente as $item)
+                <input name="name" placeholder="Nombres..." value="{{ $item->pac_apellido }}">
                 <br>
-                <input name="apellidos" placeholder="Apellidos..." value="{{ $item->postas->nombre_pos }}">
+                <input name="apellidos" placeholder="Apellidos..." value="{{ $item->posta->pos_nombre }}">
                 <br>
                 <input type="date" name="fecha" value="{{ old('date') }}"><br>
                 <input name="numdoc" placeholder="Num. Documento" value="{{ old('numdoc') }}"><br>
             @endforeach
         </div>
         <div>
-            Lugar de Residencia <br>
-            <input name="pais" placeholder="Pais..." value="{{ old('pais') }}" ><br>
-            <input name="departamento" placeholder="Departamento..." value="{{ old('departamento') }}"><br>
-            <input name="provincia" placeholder="Provincia..." value="{{ old('provincia') }}"><br>
+            @foreach($historia as $item2)
+                Lugar de Residencia <br>
+                <input name="pais" placeholder="Pais..." value="{{ $item2->his_fecha }}" ><br>
+            @endforeach
+
+            @foreach($user as $item3)
+            <input name="departamento" placeholder="Departamento..." value="{{ $item3->doc_apellido }}"><br>
+            @endforeach
+
+            @foreach($traslado as $item4)
+            <input name="provincia" placeholder="Provincia..." value="{{ $item4->tra_anamnesis }}"><br>
+            @endforeach
             <input name="distrito" placeholder="Distrito" value="{{ old('distrito') }}"><br>
             <input name="direccion" placeholder="Dirección..." value="{{ old('direccion') }}"><br>
             <input name="celular" placeholder="Celular..." value="{{ old('celular') }}"><br>
