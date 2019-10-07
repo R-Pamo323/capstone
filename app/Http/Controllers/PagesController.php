@@ -15,8 +15,18 @@ class PagesController extends Controller
     public function inicio(){
         return view('home');
     }
-    public function buscarusuario(){
-        return view('ubuscar');
+    public function buscarusuario(Request $request){
+        $dni = $request->get('dni'); //se obtiene el nombre del .blade
+        $apellido = $request->get('apellido');
+        $nombre = $request->get('nombre');
+        
+        $paciente = Paciente::orderBy('id', 'ASC')
+                    ->nombre($nombre)  //sin $ son las variables que iran en nuestro PACIENTE.PHP
+                    ->apellido($apellido)
+                    ->dni($dni)
+                    ->paginate(4);
+
+        return view('ubuscar', compact('paciente'));
     }
     public function crearusuario(){
         $paciente = Paciente::all();

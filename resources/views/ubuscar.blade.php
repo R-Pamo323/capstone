@@ -8,16 +8,16 @@
                 <div class="col-md-12">
                     <div class="page-header">
                         <h1>
-                            Búsqueda de Pacientes
-                            {{ Form::open(['route' => 'users', 'method' => 'GET', 'class' => 'form-inline pull-right']) }}
+                            Busqueda de Pacientes
+                            {{ Form::open(['route' => 'ubuscar', 'method' => 'GET', 'class' => 'form-inline pull-right']) }}
                                 <div class="form-group">
-                                    {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre']) }}
+                                    {{ Form::text('dni', null, ['class' => 'form-control', 'placeholder' => 'DNI']) }}
                                 </div>
                                 <div class="form-group">
-                                    {{ Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Email']) }}
+                                    {{ Form::text('apellido', null, ['class' => 'form-control', 'placeholder' => 'Apellidos']) }}
                                 </div>
                                 <div class="form-group">
-                                    {{ Form::text('bio', null, ['class' => 'form-control', 'placeholder' => 'Bio']) }}
+                                    {{ Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => 'Nombres']) }}
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-default">
@@ -31,17 +31,20 @@
                 <div class="col-md-8">
                     <table class="table table-hover table-striped">
                         <tbody>
-                            @foreach($users as $user)
+                            @foreach($paciente as $user)
                             <tr>
                                 <td>{{ $user->id }}</td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->bio }}</td>
+                                <td>{{ $user->pac_dni }}</td>
+                                <td>{{ $user->pac_apellido }}</td>
+                                <td>{{ $user->pac_nombre }}</td>
+                                <td>{{ $user->pac_sexo }}</td>
+                                <td>{{ $user->pac_email }}</td>
+                                <td>{{ $user->pac_nacimiento }}</td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    {{ $users->render() }}
+                    {{ $paciente->render() }}
                 </div>
             </div>
         </div>
