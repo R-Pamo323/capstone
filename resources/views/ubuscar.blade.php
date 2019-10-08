@@ -9,6 +9,7 @@
                     <div class="page-header">
                         <h1>
                             Busqueda de Pacientes
+                            
                             {{ Form::open(['route' => 'ubuscar', 'method' => 'GET', 'class' => 'form-inline pull-right']) }}
                                 <div class="form-group">
                                     {{ Form::text('dni', null, ['class' => 'form-control', 'placeholder' => 'DNI']) }}
@@ -24,7 +25,13 @@
                                         <span class="glyphicon glyphicon-search"></span>
                                     </button>
                                 </div>
+                                <div>
+                                    <a href="{{ route('crearpaciente') }}" class="btn btn-outline-success">+ Nuevo Paciente</a>
+                                </div>
+                                
+                                
                             {{ Form::close() }}
+                            
                         </h1>
                     </div>
                 </div>
@@ -40,6 +47,8 @@
                                 <td>{{ $user->pac_sexo }}</td>
                                 <td>{{ $user->pac_email }}</td>
                                 <td>{{ $user->pac_nacimiento }}</td>
+                                <td><button type="button" class="btn btn-outline-info btn-lg">Historias</button> </td>
+                                
                             </tr>
                             @endforeach
                         </tbody>
