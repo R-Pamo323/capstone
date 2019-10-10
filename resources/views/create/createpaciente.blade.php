@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title','Buscar Paciente')
+@section('title','Crear Paciente')
     
 @section('content')
 

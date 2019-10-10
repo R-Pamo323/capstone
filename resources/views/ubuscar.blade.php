@@ -47,7 +47,7 @@
                                 <td>{{ $user->pac_nacimiento }}</td>
                                 <td><a href="{{ route('uhistorias' , $user->id) }}" class="btn btn-outline-info btn-lg">Historias</a> </td>
                                 <td><a href="{{ route('uhistorias' , $user->id) }}" class="btn btn-outline-info btn-lg">Detalles</a> </td>
-                                <td><a href="{{ route('transferencia')}}" class="btn btn-outline-success btn-lg">Transferencia</a> </td>
+                                <td><a href="{{ route('creartransferencia', $user->id) }}" class="btn btn-outline-success btn-lg">Transferencia</a> </td>
                             </tr>
                             @endforeach
                         </tbody>

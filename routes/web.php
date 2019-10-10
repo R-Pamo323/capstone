@@ -10,10 +10,15 @@ Route::get('/','PagesController@inicio')->name('home');
 Route::get('/ubuscar','PagesController@buscarusuario')->name('ubuscar');
 Route::get('/ubuscar/crear', 'PagesController@crearpaciente')->name('crearpaciente');
 
-Route::post('/ubuscar','PagesController@datospaciente')->name('datospaciente');
+Route::get('/transferencia/crear/{id}','PagesController@creartransferencia')->name('creartransferencia');
 
-Route::get('/ucrear','PagesController@crearusuario')->name('ucrear');
+Route::post('/ubuscar','PagesController@datospaciente')->name('datospaciente');
+Route::post('/transferencia','PagesController@datostransferencia')->name('datostransferencia');
+
+
 Route::get('/dperfil','PagesController@perfildoc')->name('perfil');
-Route::get('/transferencia','PagesController@transferencia')->name('transferencia');
+
+
+
 
 Route::get('/uhistorias/{id}','PagesController@historias')->name('uhistorias');
