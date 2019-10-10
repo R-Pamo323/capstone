@@ -15,4 +15,5 @@ Route::post('/ubuscar','PagesController@datospaciente')->name('datospaciente');
 Route::get('/ucrear','PagesController@crearusuario')->name('ucrear');
 Route::get('/dperfil','PagesController@perfildoc')->name('perfil');
 Route::get('/transferencia','PagesController@transferencia')->name('transferencia');
-Route::get('/uhistorias','PagesController@historias')->name('uhistorias');
+
+Route::get('/uhistorias/{id}','PagesController@historias')->name('uhistorias');

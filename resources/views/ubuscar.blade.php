@@ -21,9 +21,7 @@
                                     {{ Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => 'Nombres']) }}
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-default">
-                                        <span class="glyphicon glyphicon-search"></span>
-                                    </button>
+                                    <button type="submit" class="btn btn-primary btn-block"> Buscar </button>
                                 </div>
                                 <div>
                                     <a href="{{ route('crearpaciente') }}" class="btn btn-outline-success">+ Nuevo Paciente</a>
@@ -47,8 +45,9 @@
                                 <td>{{ $user->pac_sexo }}</td>
                                 <td>{{ $user->pac_email }}</td>
                                 <td>{{ $user->pac_nacimiento }}</td>
-                                <td><button type="button" class="btn btn-outline-info btn-lg">Historias</button> </td>
-                                
+                                <td><a href="{{ route('uhistorias' , $user->id) }}" class="btn btn-outline-info btn-lg">Historias</a> </td>
+                                <td><a href="{{ route('uhistorias' , $user->id) }}" class="btn btn-outline-info btn-lg">Detalles</a> </td>
+                                <td><a href="{{ route('transferencia')}}" class="btn btn-outline-success btn-lg">Transferencia</a> </td>
                             </tr>
                             @endforeach
                         </tbody>

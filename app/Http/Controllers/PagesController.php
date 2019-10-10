@@ -80,9 +80,14 @@ class PagesController extends Controller
     public function transferencia(){
         return view('transferencia');
     }
-    public function historias(){
-        $historia = Historia::all();
+
+
+
+    public function historias($id){
+        $historia = Historia::all()
+                ->where('paciente_id',$id);
         return view('uhistorias',compact('historia'));
+        
     }
     
 }
