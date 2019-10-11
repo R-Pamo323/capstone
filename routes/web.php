@@ -9,7 +9,7 @@ Route::view('/transferencia','transferencia')->name('transferencia');*/
 Route::get('/','PagesController@inicio')->name('home');
 Route::get('/ubuscar','PagesController@buscarusuario')->name('ubuscar');
 Route::get('/ubuscar/crear', 'PagesController@crearpaciente')->name('crearpaciente');
-
+Route::get('/transferencia', 'PagesController@transferencia')->name('transferencia');
 Route::get('/transferencia/crear/{id}','PagesController@creartransferencia')->name('creartransferencia');
 
 Route::post('/ubuscar','PagesController@datospaciente')->name('datospaciente');

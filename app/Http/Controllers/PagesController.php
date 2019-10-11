@@ -124,6 +124,10 @@ class PagesController extends Controller
         return view('create.createtransferencia', compact('doctor','paciente'));
     }
 
+    public function transferencia(){
+        $transferencia =  Traslado::all();
+        return view('transferencia', compact('transferencia'));
+    }
    
 
     public function historias($id){

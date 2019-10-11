@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title','Crear Paciente')
+@section('title','Historias')
     
 @section('content')
     <div class="container">
