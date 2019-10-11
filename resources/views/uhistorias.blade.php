@@ -15,7 +15,7 @@
                             <h3>{{$item->his_diagnostico}}</h3>
                             <p>Sintomas: {{ $item->his_sintomas }}</p>
                             <p>Tratamiento: {{ $item->his_tratamiento }}</p>
-                            <p> <a class="btn btn-outline-warning btn-lg">Editar</a> <a class="btn btn-outline-danger btn-lg">Eliminar</a> </p>
+                            <p> <a href="{{ route('editarhistorias', $item->id) }}" class="btn btn-outline-warning btn-lg">Editar</a> <a class="btn btn-outline-danger btn-lg">Eliminar</a> </p>
                         </div>
                     </div>
                 @endforeach

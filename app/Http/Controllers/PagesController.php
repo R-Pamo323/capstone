@@ -152,5 +152,27 @@ class PagesController extends Controller
         
         return view('details.detailstransferencia', compact('transferencia'));
     }
+
+
+
+    ////// Editar
+
+    public function editarhistorias($id){
+        $historia = Historia::findOrFail($id);
+        return view('actions.editarhistoria', compact('historia'));
+
+    }
+
+    public function updatehistorias(Request $request, $id){
+        $updateHistoria = Historia::findOrFail($id);
+        $updateHistoria->his_fecha = $request->his_fecha;
+        $updateHistoria->his_diagnostico = $request->his_diagnostico;
+        $updateHistoria->his_tratamiento = $request->his_tratamiento;
+        $updateHistoria->his_sintomas = $request->his_sintomas;
+
+        $updateHistoria->save();
+        return back()->with('mensaje', 'Historia Actualizada');
+
+    }
     
 }
