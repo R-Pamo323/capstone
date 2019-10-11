@@ -111,7 +111,9 @@ class PagesController extends Controller
 
     
     public function perfildoc(){
-        return view('dperfil');
+        $doctor = User::all()
+                ->where('id',1);
+        return view('details.detailsdoctor', compact('doctor'));
     }
 
 
@@ -135,6 +137,20 @@ class PagesController extends Controller
                 ->where('paciente_id',$id);
         return view('uhistorias',compact('historia'));
         
+    }
+
+    public function detailspaciente($id){
+        $paciente = Paciente::all()
+                ->where('id',$id);
+        
+        return view('details.detailspaciente', compact('paciente'));
+    }
+
+    public function detailstransferencia($id){
+        $transferencia = Traslado::all()
+                ->where('id',$id);
+        
+        return view('details.detailstransferencia', compact('transferencia'));
     }
     
 }

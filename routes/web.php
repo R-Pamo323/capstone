@@ -16,9 +16,9 @@ Route::post('/ubuscar','PagesController@datospaciente')->name('datospaciente');
 Route::post('/transferencia','PagesController@datostransferencia')->name('datostransferencia');
 
 
-Route::get('/dperfil','PagesController@perfildoc')->name('perfil');
+Route::get('/dperfil','PagesController@perfildoc')->name('detailsdoctor');
 
 
-
-
+Route::get('/transferencia/{id}', 'PagesController@detailstransferencia')->name('detailstransferencia');
+Route::get('/ubuscar/{id}','PagesController@detailspaciente')->name('detailspaciente');
 Route::get('/uhistorias/{id}','PagesController@historias')->name('uhistorias');
