@@ -21,3 +21,5 @@ Route::get('/ubuscar/{id}','PagesController@detailspaciente')->name('detailspaci
 Route::get('/uhistorias/{id}','PagesController@historias')->name('uhistorias');
 Route::get('/editarhistoria/{id}','PagesController@editarhistorias')->name('editarhistorias');
 Route::put('/editarhistoria/{id}','PagesController@updatehistorias')->name('updatehistorias');
+Route::get('/editartransferencia/{id}','PagesController@editartransferencia')->name('editartransferencia');
+Route::put('/editartransferencia/{id}','PagesController@updatetransferencia')->name('updatetransferencia');

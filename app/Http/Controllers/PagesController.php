@@ -174,5 +174,37 @@ class PagesController extends Controller
         return back()->with('mensaje', 'Historia Actualizada');
 
     }
+
+    public function editartransferencia($id){
+        $transferencia = Traslado::findOrFail($id);
+        return view('actions.editartransferencia', compact('transferencia'));
+
+    }
+
+    public function updatetransferencia(Request $request, $id){
+        $updateTraslado = Traslado::findOrFail($id);
+        $updateTraslado->tra_fecha = $request->tra_fecha;
+        $updateTraslado->tra_anamnesis = $request->tra_anamnesis;
+        $updateTraslado->tra_diagnostico = $request->tra_diagnostico;
+        $updateTraslado->tra_coordinacion = $request->tra_coordinacion;
+        $updateTraslado->tra_condicion = $request->tra_condicion;
+        $updateTraslado->tra_especialidad = $request->tra_especialidad;
+        $updateTraslado->tra_persona_acompanante = $request->tra_persona_acompanante;
+        $updateTraslado->tra_o_presionarterial = $request->tra_o_presionarterial;
+        $updateTraslado->tra_o_respiracion = $request->tra_o_respiracion;
+        $updateTraslado->tra_o_pulso = $request->tra_o_pulso;
+        $updateTraslado->tra_o_temperatura = $request->tra_o_temperatura;
+        $updateTraslado->tra_a_recomendacion = $request->tra_a_recomendacion;
+        $updateTraslado->tra_a_problemas_esperados = $request->tra_a_problemas_esperados;
+        $updateTraslado->tra_confirmacion = $request->tra_confirmacion;
+        $updateTraslado->posta_id = $request->posta_id;
+        $updateTraslado->clinica_id = $request->clinica_id;
+        $updateTraslado->paciente_id = $request->paciente_id;
+        $updateTraslado->user_id = $request->user_id;
+
+        $updateTraslado->save();
+        return back()->with('mensaje', 'Transferencia Actualizada');
+
+    }
     
 }

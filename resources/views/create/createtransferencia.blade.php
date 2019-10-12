@@ -10,27 +10,27 @@
         <div>Datos Medico<br>
             @foreach($doctor as $user)
                 <input type="hidden" name="user_id" value={{$user->id}}> 
-                <input type="text" name="doc_nombre" placeholder="Nombre Medico..." class="form-control mb-2" value ={{$user->doc_nombre}} >
+                <input type="text" name="doc_nombre" placeholder="Nombre Medico..." class="form-control mb-2" value ="{{$user->doc_nombre}}" >
                 <br>
-                <input type="text" name="doc_especialidad" placeholder="Especialidad..." class="form-control mb-2" value ={{$user->doc_especialidad}}>
+                <input type="text" name="doc_especialidad" placeholder="Especialidad..." class="form-control mb-2" value ="{{$user->doc_especialidad}}">
                 <br>
-                <input type="text" name="doc_cmp" placeholder="CMP.." class="form-control mb-2" value ={{$user->doc_cmp}} >
+                <input type="text" name="doc_cmp" placeholder="CMP.." class="form-control mb-2" value ="{{$user->doc_cmp}}" >
             @endforeach
         </div>
         <div>Datos Paciente <br>
             @foreach($paciente as $user1)
                 <input type="hidden" name="paciente_id" value={{$user1->id}}> 
-                <input type="text" name="pac_nombre" placeholder="Nombre..." class="form-control mb-2" value ={{$user1->pac_nombre}}>
+                <input type="text" name="pac_nombre" placeholder="Nombre..." class="form-control mb-2" value ="{{$user1->pac_nombre}}">
                 <br>
-                <input type="text" name="pac_apellido" placeholder="Apellido..." class="form-control mb-2" value ={{$user1->pac_apellido}}>
+                <input type="text" name="pac_apellido" placeholder="Apellido..." class="form-control mb-2" value ="{{$user1->pac_apellido}}">
                 <br>
-                <input type="text" name="pac_dni" placeholder="DNI..." class="form-control mb-2" value ={{$user1->pac_dni}}>
+                <input type="text" name="pac_dni" placeholder="DNI..." class="form-control mb-2" value ="{{$user1->pac_dni}}">
                 <br>
-                <input type="text" name="pac_distrito" placeholder="Distrito..." class="form-control mb-2" value ={{$user1->pac_distrito}}>
+                <input type="text" name="pac_distrito" placeholder="Distrito..." class="form-control mb-2" value ="{{$user1->pac_distrito}}">
                 <br>
                 <input type="number" name="pac_asegurado" placeholder="Asegurado?..." class="form-control mb-2" value ={{$user1->pac_asegurado}}>
                 <br>
-                <input type="text" name="pac_seguro" placeholder="Tipo de Seguro..." class="form-control mb-2" value ={{$user1->pac_seguro}}>
+                <input type="text" name="pac_seguro" placeholder="Tipo de Seguro..." class="form-control mb-2" value ="{{$user1->pac_seguro}}">
                 <br>
             @endforeach
             

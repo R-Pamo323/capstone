@@ -13,11 +13,11 @@
         <div>Datos de Historia<br>
                 <input type="date" name="his_fecha" placeholder="Fecha..." class="form-control mb-2" value={{$historia->his_fecha}}>
                 <br>
-                <input type="text" name="his_diagnostico" placeholder="Diagnostico..." class="form-control mb-2" value={{$historia->his_diagnostico}}>
+                <input type="text" name="his_diagnostico" placeholder="Diagnostico..." class="form-control mb-2" value="{{$historia->his_diagnostico}}">
                 <br>
-                <input type="text" name="his_tratamiento" placeholder="Tratamiento.." class="form-control mb-2" value={{$historia->his_tratamiento}}>
+                <input type="text" name="his_tratamiento" placeholder="Tratamiento.." class="form-control mb-2" value="{{$historia->his_tratamiento}}">
                 <br>
-                <input type="text" name="his_sintomas" placeholder="Sintomas..." class="form-control mb-2" value={{$historia->his_sintomas}}>
+                <input type="text" name="his_sintomas" placeholder="Sintomas..." class="form-control mb-2" value="{{$historia->his_sintomas}}">
                 <br>
         </div>
         <button class = "btn btn-warning btn-block" type="submit">Actualizar</button> 
