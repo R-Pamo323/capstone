@@ -15,7 +15,7 @@
                             <p>Especialidad: {{ $item->tra_especialidad }}</p>
                             <p>Paciente: {{ $item->paciente->pac_nombre }} {{ $item->paciente->pac_apellido }}</p>
                             <p>Proveniente De: {{ $item->posta->pos_nombre }}</p>
-                            <p> <a href="{{ route('detailstransferencia', $item->id) }}" class="btn btn-outline-info btn-lg">Detalles</a>   <a href="{{ route('editartransferencia', $item->id) }}" class="btn btn-outline-warning btn-lg">Editar</a>   <a class="btn btn-outline-danger btn-lg">Eliminar</a> </p>
+                            <p> <a href="{{ route('detailstransferencia', $item->id) }}" class="btn btn-outline-info btn-lg">Detalles</a>   <a href="{{ route('editartransferencia', $item->id) }}" class="btn btn-outline-warning btn-lg">Editar</a>   <a class="btn btn-outline-danger btn-lg">Atendido</a> </p>
                         </div>
                     </div>
                 @endforeach

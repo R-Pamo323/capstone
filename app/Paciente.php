@@ -26,9 +26,9 @@ class Paciente extends Model
             return $query->where('pac_dni', 'LIKE', "%$dni%");
     }
 
-    public function historia(){
+   /* public function historia(){
         return $this->hasMany(Historia::class,'paciente_id');
-    }
+    }*/
 
 
     
