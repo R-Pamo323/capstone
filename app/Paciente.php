@@ -26,17 +26,13 @@ class Paciente extends Model
 
    /* public function historia(){
         return $this->hasMany(Historia::class,'paciente_id');
-<<<<<<< HEAD
     }
     
     public function posta(){
         return $this->belongsTo(Posta::class,'posta_id');
     }
-=======
-    }*/
->>>>>>> 562e2b14b85a5cb03b8e522c778e7dddcba03e30
 
 
     
-    //protected $dates = ['nacimiento_pac'];
+    //protected $dates = ['nacimiento_pac'];*/
 }
