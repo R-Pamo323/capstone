@@ -6,8 +6,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <a class="btn btn-outline-info btn-lg">Agregar Historia</a> </p>
+                
                 @foreach ($historia as $item)
+                <a href="{{ route('crearhistoria', $item->paciente_id) }}" class="btn btn-outline-info btn-lg">Agregar Historia</a>
                     <div class="card mb-3">
                         <div class="card-header">{{$item->his_fecha}}</div>
     
@@ -15,10 +16,21 @@
                             <h3>{{$item->his_diagnostico}}</h3>
                             <p>Sintomas: {{ $item->his_sintomas }}</p>
                             <p>Tratamiento: {{ $item->his_tratamiento }}</p>
-                            <p> <a href="{{ route('editarhistorias', $item->id) }}" class="btn btn-outline-warning btn-lg">Editar</a> <a class="btn btn-outline-danger btn-lg">Eliminar</a> </p>
+                            <p>Tratamiento: {{ $item->paciente_id }}</p>
+                            <p> 
+                                <a href="{{ route('editarhistorias', $item->id) }}" class="btn btn-outline-warning btn-lg">Editar</a>   
+                                <form action="{{ route('deletehistorias', $item->id) }}" method="POST" class="d-inline">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button class = "btn btn-outline-danger btn-sm" type="submit">
+                                    Eliminar</button>
+                                </form> 
+                            
+                            
+                            </p>
                         </div>
                     </div>
-                @endforeach
+                @endforeach 
             </div>
         </div>
     </div>

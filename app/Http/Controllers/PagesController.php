@@ -109,6 +109,31 @@ class PagesController extends Controller
 
     }
 
+    public function datoshistoria(Request $request){
+        //return $request->all();
+        $historiaNuevo = new Historia;
+        $historiaNuevo->his_fecha = $request->his_fecha;
+        $historiaNuevo->his_diagnostico= $request->his_diagnostico;
+        $historiaNuevo->his_tratamiento = $request->his_tratamiento;
+        $historiaNuevo->his_sintomas = $request->his_sintomas;
+        $historiaNuevo->paciente_id = $request->paciente_id;
+
+        $historiaNuevo->save();
+
+
+        $dni = $request->get('dni'); //se obtiene el nombre del .blade
+        $apellido = $request->get('apellido');
+        $nombre = $request->get('nombre');
+        
+        $paciente = Paciente::orderBy('id', 'ASC')
+                    ->nombre($nombre)  //sin $ son las variables que iran en nuestro PACIENTE.PHP
+                    ->apellido($apellido)
+                    ->dni($dni)
+                    ->paginate(4);
+        return view('ubuscar', compact('paciente'));
+
+    }
+
 
     
     public function perfildoc(){
@@ -125,6 +150,11 @@ class PagesController extends Controller
         $paciente = Paciente::all()
                 ->where('id',$id);
         return view('create.createtransferencia', compact('doctor','paciente'));
+    }
+
+    public function crearhistoria($id){
+        $historia = Historia::first();
+        return view('create.createhistoria', compact('historia'));
     }
 
     public function transferencia(){
@@ -176,6 +206,12 @@ class PagesController extends Controller
 
     }
 
+    public function deletehistorias($id){
+        $historiaEliminar = Historia::findOrFail($id);
+        $historiaEliminar->delete();
+        return back()->with('mensaje', 'Historia Eliminada');
+    }
+
     public function editartransferencia($id){
         $transferencia = Traslado::findOrFail($id);
         return view('actions.editartransferencia', compact('transferencia'));
@@ -207,5 +243,7 @@ class PagesController extends Controller
         return back()->with('mensaje', 'Transferencia Actualizada');
 
     }
+
+
     
 }
