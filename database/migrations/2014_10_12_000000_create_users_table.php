@@ -33,7 +33,7 @@ class CreateUsersTable extends Migration
             $table->string('doc_nombre');
             $table->string('doc_email')->unique();
             $table->char('doc_dni',8);
-            $table->string('doc_cmp');
+            $table->string('doc_cmp')->unique();
             $table->string('doc_especialidad');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

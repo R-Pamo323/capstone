@@ -15,6 +15,7 @@ class PagesController extends Controller
     public function inicio(){
         return view('home');
     }
+
     public function buscarusuario(Request $request){
         $dni = $request->get('dni'); //se obtiene el nombre del .blade
         $apellido = $request->get('apellido');

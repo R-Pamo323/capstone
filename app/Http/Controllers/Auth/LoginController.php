@@ -2,38 +2,48 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Auth;
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
 
-    use AuthenticatesUsers;
+    public function __construct(){
+        $this->middleware('guest', ['only' => 'showLoginForm']);
+    }
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
+    public function showLoginForm(){
+        return view('auth.login');
+    }
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function logout(){
+        Auth::logout();
+
+        return redirect('/');
+    }
+
+    public function login()
     {
-        $this->middleware('guest')->except('logout');
+        $credentials = $this->validate(request(), [
+            $this->username() => 'required|string',
+            'password' => 'required|string'
+        ]);
+        
+        
+    
+        if(Auth::attempt($credentials))
+        {
+            return redirect()->intended('home');
+        };
+
+        return back()->withErrors([$this->username() => 'No concuerda tu CMP'])
+        ->withImput(request([$this->username()]));
+    
+    }
+
+    public function username(){
+        return 'doc_cmp';
     }
 }

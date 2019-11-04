@@ -47,7 +47,7 @@ class PostaTableSeeder extends Seeder
         $user->doc_especialidad="Traumotologia";
         $user->posta_id=1;
         $user->clinica_id=1;
-        $user->password= "soylaleche";
+        $user->password= bcrypt('soylaleche');
         $user->save();
         
 

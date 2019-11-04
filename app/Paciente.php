@@ -6,9 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Paciente extends Model
 {
-    public function posta(){
-        return $this->belongsTo(Posta::class,'posta_id');
-    }
+    
 
     public function scopeNombre($query, $nombre)  //Recibe el parametro y hace la consulta
     {
@@ -28,6 +26,10 @@ class Paciente extends Model
 
     public function historia(){
         return $this->hasMany(Historia::class,'paciente_id');
+    }
+    
+    public function posta(){
+        return $this->belongsTo(Posta::class,'posta_id');
     }
 
 
