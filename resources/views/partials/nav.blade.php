@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/fontello.css">
 <header>
     <div class="contenedor">
-        <h1>Health Document</h1>
+        <h1 class="icon-leaf">Health Document</h1>
         <input type="checkbox" id="menu-bar">
         <label for="menu-bar" class="icon-menu"></label>
         <nav class="menu">
